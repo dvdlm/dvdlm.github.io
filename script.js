@@ -2,6 +2,7 @@ function setup() {
 var cnv = createCanvas(windowWidth, windowHeight,WEBGL);
 stroke(200);
 noFill();
+smooth();
 }
 
 function windowResized() {
