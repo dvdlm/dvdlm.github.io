@@ -21,7 +21,7 @@ function draw() {
   	rotateY((x)/1000);
 	//z++;
 	//rotateZ(z/3500);
-	z+=(sqrt(mouseX^2-mouseY^2)-z)*0.1;
+	z+=(sqrt(mouseX^2+mouseY^2)-z)*0.1;
 	rotateZ(z/2000);
     box(windowHeight/3);
 }
