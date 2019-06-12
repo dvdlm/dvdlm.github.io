@@ -15,10 +15,10 @@ resizeCanvas(windowWidth, windowHeight);
 
 function draw() {
 	background(69);
-	dx=(mouseX-x)*0.03;
-	dy=(mouseY-y)*0.03;
-	rotateX(-(dy-height/2)/1000);
-  	rotateY((dx-width/2)/1000);
+	x+=(mouseX-x)*0.03;
+	y+=(mouseY-y)*0.03;
+	rotateX(-(y-height/2)/1000);
+  	rotateY((x-width/2)/1000);
 	z++;
 	rotateZ(z/3500);
     box(windowHeight/3);
