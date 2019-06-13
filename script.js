@@ -1,10 +1,10 @@
 var z = 0;
 var x = 0, y = 0;
-let dx,dy;
+var bgcol = 225
 
 function setup() {
 var cnv = createCanvas(windowWidth, windowHeight,WEBGL);
-stroke(200);
+stroke(50);
 noFill();
 smooth();
 }
@@ -14,7 +14,8 @@ resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-	background(69);
+	bgcol += (225 - bgcol)*0.05;
+	background(bgcol);
 	x+=(mouseX-x)*0.03;
 	y+=(mouseY-y)*0.03;
 	rotateX(-(y)/1000);
@@ -22,4 +23,8 @@ function draw() {
 	z++;
 	rotateZ(z/3500);
     box(windowHeight/3);
+}
+
+function mouseClicked() {
+	bgcol = 255;
 }
