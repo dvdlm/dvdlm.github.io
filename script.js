@@ -16,7 +16,7 @@ resizeCanvas(windowWidth, windowHeight);
 
 function draw() {
 	if(clicked != 0){
-		xBoost += 100;
+		xBoost += 5000;
 		clicked = 0;
 	}
 	bgcol += (225 - bgcol)*0.05;
