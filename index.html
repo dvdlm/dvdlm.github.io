@@ -4,13 +4,21 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Shrikhand&display=swap" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
 	<script src="script.js"></script>
+	<script>
+		var clicked=0;
+		function boxspin() {
+			clicked = 1;
+			setTimeout(function(){ window.location.href = "https://ahzam1.github.io/portfolio/posts/Resume.pdf"; }, 1500);
+		}
+	</script>
 	<link rel="stylesheet" type="text/css" href="fashion.css">
 	<title>david lim</title>
     </head>
+	
     <body>
         <div style="text-align:center;text-shadow:0px 0px 3px #FFFFFF">
 		<p class="beegbeeg">david lim</h1>
-	    <p><a href="https://ahzam1.github.io/portfolio/posts/Resume.pdf">resume</a></p>
+		<p><a onclick="boxspin()">resume</a></p>
 	</div>
     </body>
 </html>

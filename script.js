@@ -1,5 +1,6 @@
 var z = 0;
 var x = 0, y = 0;
+var xBoost = 0;
 var bgcol = 225
 
 function setup() {
@@ -14,9 +15,13 @@ resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
+	if(clicked != 0){
+		xBoost += 5000;
+		clicked = 0;
+	}
 	bgcol += (225 - bgcol)*0.05;
 	background(bgcol);
-	x+=(mouseX-x)*0.03;
+	x+=(mouseX+xBoost-x)*0.03;
 	y+=(mouseY-y)*0.03;
 	rotateX(-(y)/1000);
   	rotateY((x)/1000);
