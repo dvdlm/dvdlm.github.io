@@ -1,0 +1,16 @@
+#myName {
+    font-family: 'DM Serif Text';
+    padding:30vmin;
+    font-size:6vmin;
+}
+body {
+    background-color:hsl(215, 23%, 12%);
+    color:whitesmoke;
+    overflow: hidden;
+}
+#scribble {
+    position:absolute;
+    left:15%;
+    top:5%;
+    z-index:-1
+}
