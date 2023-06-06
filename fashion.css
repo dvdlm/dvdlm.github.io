@@ -1,6 +1,6 @@
 #myName {
     font-family: 'DM Serif Text';
-    padding:30vmin;
+    padding:30vmin 15vmin;
     font-size:6vmin;
 }
 body {
@@ -10,7 +10,8 @@ body {
 }
 #scribble {
     position:absolute;
-    left:15%;
-    top:5%;
+    right:5%;
+    top:50%;
+    transform: translate(0,-50%);
     z-index:-1
 }
