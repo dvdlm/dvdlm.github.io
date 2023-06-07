@@ -17,7 +17,7 @@ function typewriter() {
     if (toType==undefined) {
         // toType=div.innerHTML;
         toType=["hi, i'm david. <br   /> i'm a mechanical engineer in BC. <br   /> nice to meet you!",
-        "hi, i'm david. <br   /> i'm an engineer     <br/> but i like making pretty stuff too. <br   /> check this out: "][refreshCount%2]
+        "hi, i'm david. <br   /> i'm an engineer     <br/> but i like making pretty stuff too."][refreshCount%2]
     }
     
     div.innerHTML=toType.slice(0,i).replace(/(?!<.*?>)<.*/,"").replace(/(?<=i'm )(da?v?i?d?\.?)/,"<span style=\"color:"+m6c+"\">$1</span>") + '_';
