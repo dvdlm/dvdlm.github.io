@@ -6,7 +6,6 @@
 body {
     background-color:hsl(215, 23%, 12%);
     color:whitesmoke;
-    overflow: hidden;
 }
 #scribble {
     position:absolute;
