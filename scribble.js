@@ -34,7 +34,7 @@ function setup() {
 function draw() {
     if (t_start==-1){t_start=0}
     else if (t_start==0){t_start=millis()/1000}
-    console.log(t_start)
+    // console.log(t_start)
 
   clear()
   // background(255);
