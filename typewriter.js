@@ -1,14 +1,31 @@
 let i=1;
 let toType;
 let div;
-var m6c=["#9EDBF9","#B689C8","#FFC261","#FDF6AF","#F3B6CF","#5e4fa2"][Math.floor(Math.random() * 6)]; // #ebeff1. Choose random accent colour
+
+// Generate accent colour, randomly cycling through m6
+
+let m6;
+
+if (localStorage.getItem("m6")==null || localStorage.getItem("m6")=='[]') {
+    m6=["#9EDBF9","#B689C8","#FFC261","#FDF6AF","#F3B6CF","#5e4fa2"]; //#ebeff1. rarity alt
+} else {
+    m6=JSON.parse(localStorage.getItem("m6"));
+}
+
+let r6=Math.floor(Math.random() * m6.length);
+var m6c=m6[r6]; // Choose random accent colour
+m6.splice(r6,1)
+localStorage.setItem("m6",JSON.stringify(m6));
+
+// Get refresh count
 
 if (localStorage.getItem("refreshCount")==null) {
     refreshCount=0;
-}
-else {
+} else {
     refreshCount=localStorage.getItem("refreshCount");
 }
+
+// Start script
 
 function typewriter() {
     if (div==undefined) {
