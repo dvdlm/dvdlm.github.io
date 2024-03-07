@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearing Protection</title>
+    <style>
+        body{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width:80vmin;
+            margin: 5rem auto;
+        }
+        h1{
+            text-align:left;
+        }
+        img{
+            display:block;
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Notes on Loudness and Hearing Protection</h1>
+    <p>With an increased awareness of the potential damage of exposure to loud noise, we've all been taking steps to mitigate our risk at loud events without compromising the quality of music. 
+        I'm particularly interested in the balance of the two - how much isolation/noise reduction should we aim for? Do musician/concert earplugs deliver that reduction? How do different musician/concert earplugs differ in quality?</p>
+
+    <h2>Measures of Loudness</h2>
+    <h3>Decibels (dB)</h3>
+    <p>Decibels are the go-to measure for signal power, (and in this case the power of the sound), but is confusing due to it's logarithmic scale. In this topic, it may be simpler to learn about the "bel" (B), from which the deci-bel (dB) is derived. 1 Bel refers to a difference of 10 times in <b>power</b> of the sound (power being a key word - not loudness). Every additional Bel is a 10x increase in power, meaning that you can determine mathematically that <em>Increase in Power = 10^Increase in Bels</em>.</p>
+    <p>For example, 1 Bel more is 10^1: 10x, and 2 bel more is 10^2: 100x more power.</p>
+    <p>From here we can describe the <b>decibel (dB)</b>, which is 1/10 of a Bel. As before, 10 decibels (1 Bel) is 10x the power, and 20 decibels (2 Bel) is 100x the power. Mathematically, <em>Increase in Power = 10^(dB/10).</em></p>
+    <p>Using decibels allows us to describe smaller changes in power, such as 3db (10^0.3)=2x, and 6db (10^0.6)=4x. These quantities are more relevant when thinking about <em>SPL</em> and <em>Perceived Loudness</em>, discussed below.</p>
+    <h4>A note on dBa and dBc</h4>
+    <p>Adding to confusion, there exists multiple "versions" of a decibel. While we've been talking about relative changes in power, we still need an absolute measure of power. It's possible to measure "objectively" the sound pressure levels across the full possible range of human hearing (10Hz-20kHz), but more often useful is taking that "objective" measurement and weighting the low and high frequencies differently, to reflect how the human ear receives sound. This is referred to as dB-A weighted, and is what most standards are based around. C-weighting exists to ensure the effect of extremely loud low-frequency impulses is captured, but is not entirely relevant to the topic of hearing damage. For the purposes of hearing damage and hearing protection, dBa will be what we use.</p>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Acoustic_weighting_curves_%281%29.svg/666px-Acoustic_weighting_curves_%281%29.svg.png"/>
+
+    <h3>Sound Pressure Level (SPL)</h3>
+    <p>For the purpose of hearing protection, this section can be ignored, as dBa captures it entirely. Read on if you're interested:</p>
+        
+    <p>Sound exists as pressure waves through air, so is naturally measured and described using the peak pressure of the sound wave. It should be noted though, that dB is not a unit of measure of SPL. SPL, like any pressure, should be measured using Pascals, or using Pounds-per-Square-Inch. We can use dB to describe relative changes in SPL though, as long as we account for the fact that the power of a sound wave is proportional to the square of the pressure. The base-10 logarithm allows us to characterize this as a 2x factor, meaning a 6dB increase refers to a 4x increase of power, but is actually a 2x increase in SPL. This doesn't have to be accounted for by a concertgoer, as all standards of exposure limits are based around dBa.</p>
+
+    <h3>Perceived loudness</h3>
+    <p>Without measurement tools, we only have our own perception of loudness to trust. Given that typical music listening volumes are 70-80dBa, it's surprising to think that a typical club can be 110dBa, which is up to 10,000x the power, but certainly not 10,000x as loud as listening to music in your car. Human perception is a very subjective topic, but typically, it's understood that people will label sound as "twice as loud" after an increase in 10dBa. In this case, the gap of 30-40dBa implies a night club is 10-20x "louder" than listening to music in your car, which is a lot more reasonable.</p>
+
+    <h3>Exposure Limits</h3>
+
+    <img src="https://www.cdc.gov/niosh/topics/noise/images/exposure-level-high-res.jpg?_=07678"/>
+
+    <p>Now, what really matters is how much damage sound can do at different decibel levels. It's understood that damage is cumulative, so a certain loudness can only be safe for a specific amount of time. In general, as the power increases by a factor of 2x or 3db, the allowable time decreases by half. The most conservative benchmark for industry is NIOSH REL's 85dBA, allowing workers to work a full 8 hr shift while exposed to this noise level. (for reference, US OSHA's 8hr limit is 90dBa, and Canada's CSA limit is 87dBa, both less conservative). Naturally then, 110dBA, which is 10^((110-85)/10)=316x the power, allows for a safe exposure limit of 8hr/316 = 1.5 minutes. Let's take some measures to reduce that noise...</p>
+
+    <img src="https://www.ifcassociation.com/sites/ifcassociation.com/files/Noise%20Chart%203.jpg"/>
+
+    <h3>When to use hearing protection</h3>
+    <p>With the exposure limits above, and assuming staying in the noisy area for 2-4 hours, we can see that hearing protection is mandatory at ~90dBa. Conservative numbers would suggest hearing protection above 85dBa. With a raised voice having a noise level of roughly 75dB, and shouting being roughly 80dB, you can assume that you need hearing protection in any situation where raising your voice still leads to difficult to hear conversation.</p>
+
+    <h2>Noise Reduction Measures</h2>
+    <p>All in-ear hearing protection works by occluding the ear canal from the external pressure waves. There exists measurements to quantify the amount of sound reduction:</p>
+    <h3>NRR vs SNR</h3>
+    <p>NRR (Noise Reduction Rating) is the US and Canada's method for measuring the reduction in dBa. Measurement is not completely objective due to the differences in sound reduction from person-to-person, depending on ear shape and other physiological differences. SNR (Single number rating) is Europe's measure of noise attenuation, and is typically ~3-4db higher than NRR. Some hearing protection manufacturers abuse this to show a higher rating. For both however, the intention is that the NRR and SNR can be simply subtracted from the noise level in dBa, and the resulting number is the exposure level that can be compared to the exposure limit chart above. However...</p>
+    <h3>Deratings</h3>
+    <p>In real-life conditions, hearing protection can be less effective than lab conditions. People moving, opening their jaws, bad fit, or inserting the hearing protection incorrectly can lead to severe reductions in protection.To be more conservative about estimating the real-life reduction in sound level, various methods for de-rating the hearing protection exists. OSHA recommends derating all hearing protection by 50%, while NIOSH recommends derating earplugs by 50% and earmuffs (over ear) by 25%, as they are more straightforward. An industry practice is to use (NRR-7)/2 as the true NRR, which is the most conservative derating of a 65% reduction in effectiveness. We will explore how different brands of hearing protection perform under concert conditions with and without this de-rating.</p>
+    
+    <h3>A note on Certifications and Legitimacy</h3>
+    <p>Industry earplugs from 3M or Howard Leight are bound to strict standards, with such prevalent use in controlled environments. Concert earplugs can choose whether to certify, but most that we have used are certified. However, what matters to us is the dBa reduction, of which Loop uses their SNR of -18dBa. Confusingly, their NRR is certified to only -8dBa. With most certified earplugs having only a 3-4dBa discrepancy between NRR and SNR, this paints a confusing picture. We'll consider both -8 and -18 in the analysis below.</p>
+
+
+    <h2>Examples of Hearing Protection</h2>
+    <p>Just like how the human ear responds differently to different frequencies, hearing protection will vary in overall attenuation, as well as attenuation along the frequency response.</p>
+    <h3>Foamies</h3>
+    <p>For Foamies, I'll use Howard Leight/Honeywell's Laser Lite, as it's what's available to me. These have a certified NRR of 32dB, with mean attenuation ranging from 36.8dB at 125Hz to 48.5dB at 4000Hz. This would have a muffling effect on higher frequencies. Note however, that higher frequencies are more damaging to the human ear, particularly at 3000-4000Hz, which is the resonant frequency of the ear canal. To be consistent, I'll calculate using the NRR of 32dB.
+    </p>
+    <p>Most conservative: Assuming an environmental noise of 110dBa, a de-rated NRR would be (32-7)/2=12.5dB. 110dBa would therefore reduce to 97.5dBa, which according to NIOSH, is <b>only 30 minutes</b> of safe exposure.</p>
+    <p>OSHA standard: De-rating using the OSHA method of 50%, we can calculate a reduction of 110-32/2=94dBa, which is <b>4 hours of exposure</b> according to OSHA, sufficient for a 110dB festival from 8pm to midnight.</p>
+    <p>No derating: 110-32=78dBa, which is well above 24 hours of exposure.</p>
+
+    <h3>Loop Experience Plus</h3>
+    <p>Loop's rating confusion points to ratings of both -8 and -18dBa. Let's do a best and worst case scenario:</p>
+    <p>Most conservative: Derating 18db: (18-7)/2= 5.5db, which reduces 110db to 104.5dB, which is 5 minutes of exposure...</p>
+    <p>Conservative: Assume 8dB is already derated. 110-8=102dB, which is 15 minutes of exposure...</p>
+    <p>No Derating: 110-18=92dB, which is about 1.5 hours of exposure (NIOSH), which is insufficient for a 2 hour concert. </p>
+    <p>With the Mutes (an additional 5db of attenuation), no derating: 110-18-5=87dB, which is sufficient for 6 hours of exposure (NIOSH).</p>
+    <h4>Recommendations for Experience Plus owners</h4>
+    <p>I can only recommend using the Mutes with the Experience Plus based on the above. Based on my experience with the foamies, I know that I felt no discomfort or ringing at all using the foamies, which points to the derating+NIOSH being too conservative. This would point to a safe 1.5 hours at 110dB with the experience plus. I think that's a bit too close for comfort, and muting it leads to 6 hours of exposure, which would comfortably cover all uses that we might need so far. The mutes work by covering the acoustic channel that help with fidelity at higher frequencies, so you will lose a bit of quality, but it would be a happy ground between the safety of foamies with the fidelity of the Loops.</p>
+
+    <h3>Amazon Set of Earplugs</h3>
+    <p>(To determine brand and gather data)</p>
+
+    <h2>Sources</h2>
+    <ul>
+        <li><a href="https://www.safeopedia.com/a-primer-on-the-noise-reduction-rating-nrr/2/9104">A resource on NRR, SNR, and derating</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/A-weighting#B-,_C-,_D-,_G-_and_Z-weightings">A resource on dBa and dBc</a></li>
+        <li><a href="https://www3.nd.edu/~atassi/Teaching/ame553/Notes/Sound_power.pdf">A resource on dB and sound pressure</a></li>
+        <li><a href="https://www.reddit.com/r/Tomorrowland/comments/vycllb/a_bit_of_a_warning_about_loop_earplugs/">A reddit thread where Loop is accused of misleading ratings, with a reply from a Loop employee</a></li>
+        <li><a href="https://www.reddit.com/r/LoopEarplugs/comments/17u6r6k/intensive_loop_101_for_beginners_quiet_vs/">A reddit thread that accumulates information on Loop earplugs.</a></li>
+    </ul>
+
+</body>
+</html>
