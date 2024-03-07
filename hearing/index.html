@@ -16,6 +16,7 @@
         img{
             display:block;
             margin:auto;
+            max-width:80vmin;
         }
     </style>
 </head>
@@ -68,18 +69,24 @@
     <h2>Examples of Hearing Protection</h2>
     <p>Just like how the human ear responds differently to different frequencies, hearing protection will vary in overall attenuation, as well as attenuation along the frequency response.</p>
     <h3>Foamies</h3>
+    <img src="foamies.jpg"/>
     <p>For Foamies, I'll use Howard Leight/Honeywell's Laser Lite, as it's what's available to me. These have a certified NRR of 32dB, with mean attenuation ranging from 36.8dB at 125Hz to 48.5dB at 4000Hz. This would have a muffling effect on higher frequencies. Note however, that higher frequencies are more damaging to the human ear, particularly at 3000-4000Hz, which is the resonant frequency of the ear canal. To be consistent, I'll calculate using the NRR of 32dB.
     </p>
-    <p>Most conservative: Assuming an environmental noise of 110dBa, a de-rated NRR would be (32-7)/2=12.5dB. 110dBa would therefore reduce to 97.5dBa, which according to NIOSH, is <b>only 30 minutes</b> of safe exposure.</p>
-    <p>OSHA standard: De-rating using the OSHA method of 50%, we can calculate a reduction of 110-32/2=94dBa, which is <b>4 hours of exposure</b> according to OSHA, sufficient for a 110dB festival from 8pm to midnight.</p>
-    <p>No derating: 110-32=78dBa, which is well above 24 hours of exposure.</p>
+    <ul>
+    <li><p>Most conservative: Assuming an environmental noise of 110dBa, a de-rated NRR would be (32-7)/2=12.5dB. 110dBa would therefore reduce to 97.5dBa, which according to NIOSH, is <b>only 30 minutes</b> of safe exposure.</p></li>
+    <li><p>OSHA standard: De-rating using the OSHA method of 50%, we can calculate a reduction of 110-32/2=94dBa, which is <b>4 hours of exposure</b> according to OSHA, sufficient for a 110dB festival from 8pm to midnight.</p></li>
+    <li><p>No derating: 110-32=78dBa, which is well above 24 hours of exposure.</p></li>
+    </ul>
 
     <h3>Loop Experience Plus</h3>
     <p>Loop's rating confusion points to ratings of both -8 and -18dBa. Let's do a best and worst case scenario:</p>
-    <p>Most conservative: Derating 18db: (18-7)/2= 5.5db, which reduces 110db to 104.5dB, which is 5 minutes of exposure...</p>
-    <p>Conservative: Assume 8dB is already derated. 110-8=102dB, which is 15 minutes of exposure...</p>
-    <p>No Derating: 110-18=92dB, which is about 1.5 hours of exposure (NIOSH), which is insufficient for a 2 hour concert. </p>
-    <p>With the Mutes (an additional 5db of attenuation), no derating: 110-18-5=87dB, which is sufficient for 6 hours of exposure (NIOSH).</p>
+    <ul>
+        <li><p>Most conservative: Derating 18db: (18-7)/2= 5.5db, which reduces 110db to 104.5dB, which is 5 minutes of exposure...</p></li>
+        <li><p>Conservative: Assume 8dB is already derated. 110-8=102dB, which is 15 minutes of exposure...</p></li>
+        <li><p>No Derating: 110-18=92dB, which is about 1.5 hours of exposure (NIOSH), which is insufficient for a 2 hour concert. </p></li>
+        <li><p>With the Mutes (an additional 5db of attenuation), no derating: 110-18-5=87dB, which is sufficient for 6 hours of exposure (NIOSH).</p></li>
+    </ul>
+    
     <h4>Recommendations for Experience Plus owners</h4>
     <p>I can only recommend using the Mutes with the Experience Plus based on the above. Based on my experience with the foamies, I know that I felt no discomfort or ringing at all using the foamies, which points to the derating+NIOSH being too conservative. This would point to a safe 1.5 hours at 110dB with the experience plus. I think that's a bit too close for comfort, and muting it leads to 6 hours of exposure, which would comfortably cover all uses that we might need so far. The mutes work by covering the acoustic channel that help with fidelity at higher frequencies, so you will lose a bit of quality, but it would be a happy ground between the safety of foamies with the fidelity of the Loops.</p>
 
