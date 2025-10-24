@@ -38,12 +38,12 @@ function draw() {
 
   clear()
   // background(255);
-  t=millis()/1000-drawtime-t_start;
+  t=millis()/1000-t_start;
   camera(cameraDist*sin(t*2*PI/cameraPeriod),
          0,
          cameraDist*cos(t*2*PI/cameraPeriod));
   
-  nx=constrain(floor((t+drawtime)*n/drawtime),0,n)
+  nx=constrain(floor((t)*n/drawtime),0,n)
   beginShape();
   for (let i=0;i<nx;i++) {
     if (abs(t*wiggleFreq*2)%2>1){ 
@@ -54,7 +54,7 @@ function draw() {
     }
   }
   endShape();
-div.innerHTML=millis()
+div.innerHTML=t;
   
 }
 function windowResized() {
