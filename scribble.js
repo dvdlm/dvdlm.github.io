@@ -6,7 +6,7 @@ const wiggleFreq=3;
 let cameraDist;
 const cameraPeriod=60;
 let t;
-let t_start=-1;
+let t_start;
 let nx;
 let points=[[],[],[]]; 
 let pointsr=[[],[],[]];
@@ -29,6 +29,7 @@ function setup() {
   stroke(m6c);
   strokeWeight(2);
   noLoop();
+  t_start=-1;
 }
 
 function draw() {
