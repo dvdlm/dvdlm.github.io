@@ -54,7 +54,7 @@ function draw() {
     }
   }
   endShape();
-div.innerHTML=t;
+div.innerHTML=t_start
   
 }
 function windowResized() {
