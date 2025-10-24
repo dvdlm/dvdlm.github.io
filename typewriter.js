@@ -44,7 +44,7 @@ function typewriter() {
         setTimeout(function() {typewriter()},50);
     }
     else {
-        if (refreshCount>0) {
+        if (refreshCount>=0) {
             loop();
             t_start=millis()/1000;
         }; // start drawing
