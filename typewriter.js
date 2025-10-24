@@ -44,7 +44,10 @@ function typewriter() {
         setTimeout(function() {typewriter()},50);
     }
     else {
-        if (refreshCount>0) {loop()}; // start drawing
+        if (refreshCount>0) {
+            resetMillis();
+            loop();        
+        }; // start drawing
         refreshCount++;
         localStorage.setItem("refreshCount",refreshCount);
     };
