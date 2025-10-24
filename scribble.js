@@ -54,6 +54,7 @@ function draw() {
     }
   }
   endShape();
+div.innerHTML=millis()
   
 }
 function windowResized() {
