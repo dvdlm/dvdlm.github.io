@@ -45,7 +45,6 @@ function typewriter() {
     }
     else {
         if (refreshCount>0) {
-            resetMillis();
             loop();        
         }; // start drawing
         refreshCount++;
