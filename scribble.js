@@ -29,12 +29,12 @@ function setup() {
   stroke(m6c);
   strokeWeight(2);
   noLoop();
-  t_start=-1;
+  t_start=null;
 }
 
 function draw() {
-    if (t_start==-1){t_start=0}
-    else if (t_start==0){t_start=millis()/1000}
+    if (t_start==null){}
+    else {
     // console.log(t_start)
 
   clear()
@@ -55,7 +55,7 @@ function draw() {
     }
   }
   endShape();
-div.innerHTML=t_start
+}
   
 }
 function windowResized() {
