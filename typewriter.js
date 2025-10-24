@@ -45,7 +45,8 @@ function typewriter() {
     }
     else {
         if (refreshCount>0) {
-            loop();        
+            loop();
+            t_start=millis()/1000;
         }; // start drawing
         refreshCount++;
         localStorage.setItem("refreshCount",refreshCount);
