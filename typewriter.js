@@ -37,7 +37,7 @@ function typewriter() {
         "hi, i'm david. <br   /> i'm an engineer     <br/> but i like making pretty stuff too."][refreshCount%2]
     }
     
-    div.innerHTML=toType.slice(0,i).replace(/(?!<.*?>)<.*/,"").replace(/(?<=i'm )(da?v?i?d?\.?)/,"<span style=\"color:"+m6c+"\">$1</span>") + '_' + t_start;
+    div.innerHTML=toType.slice(0,i).replace(/(?!<.*?>)<.*/,"").replace(/(?<=i'm )(da?v?i?d?\.?)/,"<span style=\"color:"+m6c+"\">$1</span>") + '_';
     // console.log(i)
     i++;
     if (i<=toType.length) {
