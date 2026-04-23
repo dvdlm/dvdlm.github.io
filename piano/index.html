@@ -264,14 +264,14 @@ a:hover, a:focus {
 
 <input type="text" id="hiddenInput" style="opacity: 0; position: absolute;">
 <div id="piano"></div>
-<span id="output"></span>
-<span id="output2"></span>
+<!-- <span id="output"></span> -->
+<!-- <span id="output2"></span> -->
 
 <blockquote><p>Bösendorfer, Upright 120/130</p></blockquote>
 
 <p>letters are single notes in a diatonic scale, each row is an octave. numbers 1-8 are chords. spacebar is sustain. enjoy!</p>
 
-<p>best on pc + keyboard. on mobile, <em>try</em> <a id="mobileFocus" style="text-decoration-line: underline">clicking this</a></p>
+<p>best on pc + keyboard. on mobile, <em>try</em> <a id="mobileFocus" style="text-decoration-line: underline">clicking this</a> <span id="ioswarning" style="display:none">(on ios, make sure you're not in silent mode)</span></p>
 
 
 
@@ -293,12 +293,17 @@ let mobileFlag=false;
 let unidentifiedFlag=false;
 let started = false;
 
-document.addEventListener("pointerdown", () => {
+document.addEventListener("pointerdown", async () => {
     if (!started) {
-        Tone.start().then(() => {
-            started = true;
-            console.log("Audio unlocked (pointer)");
-        });
+        if ("audioSession" in navigator) {
+            try {
+                navigator.audioSession.type = "playback";
+                console.log("AudioSession set to playback");
+            } catch {}
+        }
+        await Tone.start();
+        started = true;
+        console.log("Audio unlocked (pointer)");
     }
 }, { once: true });
 
@@ -307,6 +312,16 @@ document.getElementById("mobileFocus").addEventListener("click", async function(
     input.focus();
     mobileFlag = true;
     sustain = true;
+
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+    document.getElementById("ioswarning").style.display="inline";
+    }
+    if ("audioSession" in navigator) {
+        try {
+            navigator.audioSession.type = "playback";
+            console.log("AudioSession set to playback");
+        } catch {}
+    }
 
     if (!started) {
         await Tone.start();
@@ -326,11 +341,11 @@ function swapInput() {
     input.addEventListener("input", async (e) => {
         const char = e.target.value.slice(-1).toLowerCase(); // last typed character
         e.target.value = "";
-        document.getElementById("output").innerHTML = "inputlistened: " + char;  // TROUBLESHOOTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+        // document.getElementById("output").innerHTML = "inputlistened: " + char; 
+    
         const note = keyMap[char];
         if (!note) return;
-
+    
         if (!started) {
             await Tone.start();
             started = true;
@@ -340,7 +355,7 @@ function swapInput() {
 }
 
 document.addEventListener("keydown", async (e) => {
-     if (!started) {
+    if (!started) {
         await Tone.start();
         started = true;
     }
@@ -351,7 +366,7 @@ document.addEventListener("keydown", async (e) => {
         return;
     }
 
-    document.getElementById("output2").innerHTML = "eventkey: " + e.key + " code: " + e.code + " which: " + e.which;  // TROUBLESHOOTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // document.getElementById("output2").innerHTML = "eventkey: " + e.key + " code: " + e.code + " which: " + e.which;  // TROUBLESHOOTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     if (e.key == "Unidentified" && !unidentifiedFlag && mobileFlag) {
         unidentifiedFlag = true;
@@ -359,7 +374,7 @@ document.addEventListener("keydown", async (e) => {
     }
 
     const note = keyMap[e.key];
-
+    
     if (!note) return;
 
     e.preventDefault();
