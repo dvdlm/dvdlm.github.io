@@ -265,7 +265,7 @@ a:hover, a:focus {
 <input type="text" id="hiddenInput" style="opacity: 0; position: absolute;">
 <div id="piano"></div>
 <!-- <span id="output"></span> -->
-<span id="output2"></span>
+<!-- <span id="output2"></span> -->
 
 <blockquote><p>Bösendorfer, Upright 120/130</p></blockquote>
 
@@ -366,7 +366,7 @@ document.addEventListener("keydown", async (e) => {
         return;
     }
 
-    document.getElementById("output2").innerHTML = "eventkey: " + e.key + " code: " + e.code + " which: " + e.which;  // TROUBLESHOOTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // document.getElementById("output2").innerHTML = "eventkey: " + e.key + " code: " + e.code + " which: " + e.which;  // TROUBLESHOOTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     if (e.key == "Unidentified" && !unidentifiedFlag && mobileFlag) {
         unidentifiedFlag = true;
