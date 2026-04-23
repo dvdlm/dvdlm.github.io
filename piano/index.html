@@ -293,6 +293,15 @@ let mobileFlag=false;
 let unidentifiedFlag=false;
 let started = false;
 
+document.addEventListener("pointerdown", () => {
+    if (!started) {
+        Tone.start().then(() => {
+            started = true;
+            console.log("Audio unlocked (pointer)");
+        });
+    }
+}, { once: true });
+
 const input = document.getElementById("hiddenInput");
 document.getElementById("mobileFocus").addEventListener("click", async function() {
     input.focus();
