@@ -330,12 +330,14 @@ document.getElementById("mobileFocus").addEventListener("click", async function(
     }
 });
 
+const limiter = new Tone.Limiter(-1).toDestination();
 const sampler = new Tone.Sampler({
     urls: sampleMap,
     baseUrl: "./notes/",
+    attack: 0.005,
     release: .5,
     volume: 1,
-}).toDestination();
+}).connect(limiter);
 
 function swapInput() {
     input.addEventListener("input", async (e) => {
