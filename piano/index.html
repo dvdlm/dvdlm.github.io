@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/{{myName}}.css" />
-    <link rel="stylesheet" href="/css/global.css" />
     <meta name="theme-color" content="#709c99"/>
     <title>mom's piano</title>
     <style>
@@ -279,7 +277,7 @@ a:hover, a:focus {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.3.5/Tone.js"></script>
 
 <script type="module">
-export const heldKeys = new Set();     // physical keys currently down
+export const heldKeys = new Set();     // physical keys currently down. globalized
 window.heldKeys = heldKeys;
 window.dispatchEvent(new Event("hkReady"));
 const sounding = new Set();     // notes currently playing
@@ -293,18 +291,33 @@ let mobileFlag=false;
 let unidentifiedFlag=false;
 let started = false;
 
-document.addEventListener("pointerdown", async () => {
-    if (!started) {
-        if ("audioSession" in navigator) {
-            try {
-                navigator.audioSession.type = "playback";
-                console.log("AudioSession set to playback");
-            } catch {}
-        }
-        await Tone.start();
-        started = true;
-        console.log("Audio unlocked (pointer)");
+async function startAudio() {
+    if (started) return;
+    
+    if ("audioSession" in navigator) {
+        try {
+            navigator.audioSession.type = "playback";
+            console.log("AudioSession set to playback");
+        } catch {}
     }
+
+    await Tone.start();
+    started = true;
+    console.log("Audio unlocked");
+
+    // play a silent sound independent of sample loading to ensure ios unlock
+    const wakeGain = new Tone.Gain(0).toDestination(); // unlock should only occur once so ok to define here
+    const wakeOsc = new Tone.Oscillator({
+        frequency: 440,
+        type: "sine"
+    }).connect(wakeGain);
+    wakeOsc.start();
+    wakeOsc.stop(Tone.now() + 0.05);
+    wakeOsc.onstop = () => wakeOsc.dispose();
+}
+
+document.addEventListener("pointerdown", async () => {
+    if (!started) await startAudio();
 }, { once: true });
 
 const input = document.getElementById("hiddenInput");
@@ -316,30 +329,23 @@ document.getElementById("mobileFocus").addEventListener("click", async function(
     if (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
     document.getElementById("ioswarning").style.display="inline";
     }
-    if ("audioSession" in navigator) {
-        try {
-            navigator.audioSession.type = "playback";
-            console.log("AudioSession set to playback");
-        } catch {}
-    }
-
-    if (!started) {
-        await Tone.start();
-        started = true;
-        console.log("Audio unlocked");
-    }
+    if (!started) await startAudio();
 });
 
 const limiter = new Tone.Limiter(-1).toDestination();
 const sampler = new Tone.Sampler({
     urls: sampleMap,
     baseUrl: "./notes/",
-    attack: 0.005,
+    attack: 0.01,
     release: .5,
 }).connect(limiter);
 
+await Tone.loaded();
+
 function swapInput() {
     input.addEventListener("input", async (e) => {
+        if (!started) await startAudio();
+
         const char = e.target.value.slice(-1).toLowerCase(); // last typed character
         e.target.value = "";
         // document.getElementById("output").innerHTML = "inputlistened: " + char; 
@@ -347,19 +353,12 @@ function swapInput() {
         const note = keyMap[char];
         if (!note) return;
     
-        if (!started) {
-            await Tone.start();
-            started = true;
-        }
         sampler.triggerAttackRelease(note,"6s");
     });
 }
 
 document.addEventListener("keydown", async (e) => {
-    if (!started) {
-        await Tone.start();
-        started = true;
-    }
+    if (!started) await startAudio();
 
     if (e.code === "Space") {
         e.preventDefault();
@@ -527,6 +526,7 @@ function draw() {
         transform: translateX(-50%); */
     }
 </style>
+
 
 
     </main>
