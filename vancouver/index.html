@@ -260,7 +260,8 @@ a:hover, a:focus {
 
       <div class="crossnote markdown-preview  ">
       
-<h1 id="vancouver-visit">vancouver visit </h1>
+<h1 id="vancouver-visit">chihiro & jerome 2026: vancouver</h1>
+          <p>hi guys!! miss you already; excited to have you here!! here's some recco's from me:</p>
 <h2 id="food">Food: </h2>
 <ul>
 <li><strong>Pho 37 Richmond</strong>: great food, awesome plaza for the crowdpleaser mango sago after at Alfa tea. I personally go across the street to hanlin tea for mango drink with rice mochi</li>
@@ -373,6 +374,59 @@ a:hover, a:focus {
 </ul>
 <p><img src="image-18.jpg" alt="  "><br>
 <img src="image-19.jpg" alt="alt text"></p>
+
+          <p>with love!!!   <span id="davidClick" class="clickableDavid"><!--
+    --><span class="toDrop" style="--x:-1rem; --y:3rem; --r:-25deg">d</span><!--
+    --><a id="avLink">av</a><!--
+    --><span class="toDrop" style="--x:.5rem; --y:2rem; --r:10deg">i</span><!--
+    --><span class="toDrop" style="--x:.7rem; --y:4rem; --r:20deg">d!</span><!--
+  --></span></p>
+
+          <script>
+  dropList = document.querySelectorAll(".toDrop");
+  dropIndexes = Array.from(Array(dropList.length).keys()); //create 0,1,2,N
+
+  let avTransformed=0;
+      
+  document.getElementById("davidClick").addEventListener("click", ()=> {
+    //check if done dropping & roll dice to see if anyth happens
+    if (dropIndexes.length && (Math.random()<0.3)) {
+      //roll which is gonna drop out of dropIndexes. remove it from dropIndexes.
+      let indexToDrop=dropIndexes.splice(Math.floor(Math.random() * dropIndexes.length),1);
+      //drop it
+      dropList[indexToDrop].classList.add("drop");
+    }
+    if (dropIndexes.length==0 && !avTransformed) {
+      // remove click-erode movement
+      document.getElementById("davidClick").classList.remove("clickableDavid");
+
+      let av=document.getElementById("avLink");
+      // animate transformation
+      av.classList.add("avTransform");
+      //at avTransform end, give link
+      av.addEventListener("animationend", (event)=>{
+        if (event.animationName=='avFloat') {av.href = "https://dvdl.im/";}
+      });
+      // oneway
+      avTransformed=1;
+    }
+  });
+</script>
+<style>
+  #davidClick {user-select: none;}
+  .clickableDavid:active {transform: translate(.04rem,.04rem)}
+
+  .drop {animation: 1s linear 0.1s 1 both drop}
+  @keyframes drop {
+    100% {transform: translate(var(--x),var(--y)) rotate(var(--r)); opacity:0; visibility: hidden;}
+  }
+
+  .avTransform {animation: 1.5s cubic-bezier(0.8, -0.01, 0.33, 1.24) 1s 1 both avFloat}
+  @keyframes avFloat {
+    50% {transform: scale(3) rotate(4deg) translate(0,0);}
+    100% {transform: scale(1.25) rotate(0deg) translate(-.2em,-0.04em); color: var(--accent-color)}
+  }
+</style>
 
       </div>
 
