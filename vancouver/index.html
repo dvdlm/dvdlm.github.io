@@ -375,7 +375,7 @@ a:hover, a:focus {
 <p><img src="image-18.jpg" alt="  "><br>
 <img src="image-19.jpg" alt="alt text"></p>
 
-          <p>with love!!!   <span id="davidClick" class="clickableDavid"><!--
+          <p id="secret1">with love!!!   <span id="davidClick" class="clickableDavid"><!--
     --><span class="toDrop" style="--x:-1rem; --y:3rem; --r:-25deg">d</span><!--
     --><a id="avLink">av</a><!--
     --><span class="toDrop" style="--x:.5rem; --y:2rem; --r:10deg">i</span><!--
@@ -419,6 +419,10 @@ a:hover, a:focus {
   .drop {animation: 1s linear 0.1s 1 both drop}
   @keyframes drop {
     100% {transform: translate(var(--x),var(--y)) rotate(var(--r)); opacity:0; visibility: hidden;}
+  }
+
+      #secret1 {
+    span, a {display:inline-block; text-decoration-line: none;}
   }
 
   .avTransform {animation: 1.5s cubic-bezier(0.8, -0.01, 0.33, 1.24) 1s 1 both avFloat}
